@@ -14,6 +14,7 @@
                 <a href="/" onclick="route()">Home</a>
                 <a href="/about" onclick="route()">About</a>
                 <a href="/contact" onclick="route()">Contact</a>
+                <a href="/registration" onclick="route()">registration</a>
             </nav>
         </div>
         <div class="buttons-div">
@@ -24,9 +25,31 @@
         </div>
         <div id="main-page"></div>
     </div>
+    <div class="form-div">
+        <form id="registration-form">
+            <ul>
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="username" placeholder="Your name">
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Your email">
+                </li>
+                <li>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Your password">
+                </li>
+                <li>
+                    <input id="registration-submit" class="form-btn" type="submit" value="submit">
+                </li>
+            </ul>
+        </form>
+    </div>
   
-    <script src="../index.js"></script>
-    <script src="../router.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/router.js"></script>
+    <script src="./js/registration.js"></script>
     
     
 </body>

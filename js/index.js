@@ -7,12 +7,7 @@ const newUserData = {
         password: "asdfasdf"
     }
 }
-const loginData = {
-    user: {
-        username: "test1",
-        password: "asdfasdf"
-    }
-}
+
 
 const registration = () => {
     fetch(`${base_url}/users`, {
@@ -33,7 +28,7 @@ const registration = () => {
         })
 }
 
-const login = () => {
+const login = (loginData) => {
     fetch(`${base_url}/auth`, {
         method: "POST",
         headers: {
@@ -82,6 +77,7 @@ const logOut = () => {
     localStorage.removeItem("jwt")
     localStorage.removeItem("userId")
     alert("Logout successful", localStorage.getItem("jwt"))
+    
   
     
 }
@@ -102,6 +98,34 @@ const handleLogoutUser = () => {
     const registrationBtn = document.getElementById("logout-user")
     registrationBtn.addEventListener('click', () => logOut())
 }
+
+// Registration 
+const username = document.getElementById("name")
+const email = document.getElementById("email")
+const password = document.getElementById("password")
+const registration_form = document.getElementById("registration-form")
+
+
+// We want to listent for a submit on the form element and call handle function
+    // When you grab the input element you want, you can use the .value to grabs its value
+const handleFormSubmit = (e) => {
+    e.preventDefault()
+    const loginData = {
+        user: {
+            username: username.value,
+            password: password.value
+        }
+    }
+
+    login(loginData)
+
+    console.log(username.value, email.value, password.value)
+}
+
+const registration_submit = document.getElementById("registration-form")
+registration_submit.addEventListener("submit", handleFormSubmit)
+
+
 handleLogoutUser()
 handleLoginUser()
 handleRegistration()
